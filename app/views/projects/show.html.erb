@@ -1,6 +1,10 @@
-<p>
+<%= link_to 'Edit Project', edit_project_path %>
+<%= link_to 'Delete Project', @project, :confirm => "Delete this project?", :method => :delete %>
+<h1>
 	<%= @project[:name] %>
+</h1>
 	<hr/>
+<p>
 	<%= @project[:description] %>
 	<hr/>
 	<%= @project[:goal] %>
@@ -9,3 +13,4 @@
 	<hr/>
 	<%= @project[:endtime] %>
 </p>
+<%= link_to 'Home', projects_path %>
