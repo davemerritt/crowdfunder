@@ -1,0 +1,7 @@
+<h1> Projects </h1>
+
+<% @projects.each do |project| %>
+	<%= link_to project.name, project %>
+	<% end %>
+<hr/>
+<%= link_to 'New Project', 'projects/new' %>
