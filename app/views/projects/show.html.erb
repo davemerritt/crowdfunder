@@ -7,7 +7,7 @@
 <p>
 	<%= @project[:description] %>
 	<hr/>
-	<%= @project[:goal] %>
+	<%= number_to_currency(@project.goal) %>
 	<hr/>
 	<%= @project[:starttime] %>
 	<hr/>
