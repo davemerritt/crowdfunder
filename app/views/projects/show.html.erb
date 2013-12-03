@@ -5,12 +5,13 @@
 </h1>
 	<hr/>
 <p>
-	<%= @project[:description] %>
+	Project Name: <%= @project[:description] %>
 	<hr/>
-	<%= number_to_currency(@project.goal) %>
+	Project Goal: <%= number_to_currency(@project.goal) %>
 	<hr/>
-	<%= @project[:starttime] %>
+	Project Start: <%= @project[:starttime] %>
 	<hr/>
-	<%= @project[:endtime] %>
+	Project End: <%= @project[:endtime] %>
 </p>
+
 <%= link_to 'Home', projects_path %>

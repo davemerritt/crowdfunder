@@ -1,5 +1,5 @@
 Crowdfunder::Application.routes.draw do
-  root :to => 'users#index'
+  root :to => 'projects#index'
 
   resources :user_sessions
   resources :users
