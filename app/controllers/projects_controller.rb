@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
-skip_before_filter :require_login, except: [:edit, :new, :create, :destroy]
+
+  skip_before_filter :require_login, except: [:edit, :new, :create, :destroy]
+
+
+ 
   def new
     @project = Project.new
   end
@@ -30,6 +34,10 @@ skip_before_filter :require_login, except: [:edit, :new, :create, :destroy]
 
   def show
     @project = Project.find(params[:id])
+
+    if current_user
+      @pledge = @project.pledges.build
+    end
   end
 
   def index

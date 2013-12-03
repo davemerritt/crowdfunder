@@ -34,6 +34,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'time_diff'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

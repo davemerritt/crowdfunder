@@ -9,9 +9,13 @@
 	<hr/>
 	Project Goal: <%= number_to_currency(@project.goal) %>
 	<hr/>
-	Project Start: <%= @project[:starttime] %>
-	<hr/>
-	Project End: <%= @project[:endtime] %>
+	</p>
+	Total Pledged: <%= number_to_currency(total = Pledge.sum(:amount)) %>
+
+<p><% time_diff_components = Time.diff(@project[:starttime], @project[:endtime]) %>
+   Number of Days Left: <%= time_diff_components[:day] %> 
 </p>
+
+<%= render 'pledges/pledge_form' %>
 
 <%= link_to 'Home', projects_path %>

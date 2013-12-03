@@ -1,10 +1,12 @@
 Crowdfunder::Application.routes.draw do
+
   root :to => 'projects#index'
 
   resources :user_sessions
   resources :users
-  resources :projects
-
+  resources :projects do
+    resources :pledges, :except => [:index]
+  end
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

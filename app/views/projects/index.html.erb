@@ -2,6 +2,7 @@
 
 <% @projects.each do |project| %>
 	<%= link_to project.name, project %>
+	<br><br>
 	<% end %>
 <hr/>
 <%= link_to 'New Project', 'projects/new' %>

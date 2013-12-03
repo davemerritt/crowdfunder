@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	has_many :pledges
+	has_many :projects, :through => :pledges
+
 	authenticates_with_sorcery!
 
 	validates :password, length: { minimum: 3 }
