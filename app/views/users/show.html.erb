@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<hr />
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-
+<%= number_to_currency(total = Pledge.sum(:amount)) %>
+<hr />
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Home', projects_path %>
