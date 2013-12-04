@@ -1,8 +1,6 @@
 class ProjectsController < ApplicationController
-
+  helper :all
   skip_before_filter :require_login, except: [:edit, :new, :create, :destroy]
-
-
  
   def new
     @project = Project.new

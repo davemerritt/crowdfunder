@@ -1,11 +1,20 @@
 <%= link_to 'Edit Project', edit_project_path %>
 <%= link_to 'Delete Project', @project, :confirm => "Delete this project?", :method => :delete %>
+
+<%# if current_user.id == current_project %>
+
+<p> You have already pledged!  </p>
+
+<%# else %>
+<p>Pledge Below!</p>
+<%# end %>
+
 <h1>
 	<%= @project[:name] %>
 </h1>
 	<hr/>
 <p>
-	Project Name: <%= @project[:description] %>
+	About This Project: <%= @project[:description] %>
 	<hr/>
 	Project Goal: <%= number_to_currency(@project.goal) %>
 	<hr/>
@@ -16,6 +25,11 @@
    Number of Days Left: <%= time_diff_components[:day] %> 
 </p>
 
+<% if Time.now <= @project[:endtime] %>
+
 <%= render 'pledges/pledge_form' %>
 
+<% else %>
+<p>This project has ended! </p>
+<% end %>
 <%= link_to 'Home', projects_path %>

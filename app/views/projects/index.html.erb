@@ -5,4 +5,7 @@
 	<br><br>
 	<% end %>
 <hr/>
+
+<h3>Total Funded For All Projects: <%= number_to_currency(Pledge.all.sum(:amount)) %></h3>
+<hr />
 <%= link_to 'New Project', 'projects/new' %>

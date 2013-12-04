@@ -2,8 +2,9 @@ class Project < ActiveRecord::Base
 	has_many :pledges
 	has_many :users, :through => :pledges
 
-	def total_pledged
-		total = total + @pledge
+	def current_project
+		project = Project.id
+		Pledge.where( :project_id => project.id ).where( :user_id => user.id )
 	end
 
 	def formatted_price
