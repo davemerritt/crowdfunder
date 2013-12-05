@@ -9,5 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require foundation_and_overrides
+
  *= require_tree .
  */
+
+
+.container {
+  text-align: left;
+  width: 75%;
+  margin-left: 150px;
+  margin-top: 100px;
+}

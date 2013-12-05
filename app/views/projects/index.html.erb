@@ -1,11 +1,11 @@
 <h1> Projects </h1>
 
-<% @projects.each do |project| %>
-	<%= link_to project.name, project %>
-	<br><br>
-	<% end %>
-<hr/>
-
+<div class="panel callout radius">
 <h3>Total Funded For All Projects: <%= number_to_currency(Pledge.all.sum(:amount)) %></h3>
-<hr />
-<%= link_to 'New Project', 'projects/new' %>
+</div>
+
+<% @projects.each do |project| %>
+	<h3><%= link_to project.name, project %></h3>
+  <hr/>
+<% end %>
+

@@ -1,7 +1,5 @@
 <% if current_user %>
-<h3>Pledge!</h3>
-
-<p>Pledge for <%= @project.name %></p>
+<h3>Pledge for <%= @project.name %></h3>
 
 <%= form_for([@project, @pledge]) do |f| %>
 	<% if @pledge.errors.any? %>
@@ -15,12 +13,12 @@
 		</div>
 	<% end %>
 
-	<div class="field">
+	<div class="large-4 columns">
 		<%= f.label :amount %><br />
 		<%= f.number_field :amount, :min => 1 %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
+	</div><hr/>
+	<div class="action">
+		<button class="button [radius round]">Create Pledge</button>
 	</div>
 <% end %>
 

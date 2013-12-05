@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html>
-<hea4d>
-  <title>Crowdfunder</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-  <%= csrf_meta_tags %>
-  
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<div id="nav">
-	<% if current_user %>
-		<%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-		<%= link_to "Logout", :logout, method: :post %>
-	<% else %> 
-		<%= link_to "Register", new_user_path %> |
-		<%= link_to "Login", :login %>
-	<% end %>
-</div>
-<div>
-	<p id="notice"><%= flash[:notice] %></p>
-	<p id="alert"><%= flash[:alert] %></p>
-</div>
+    <title><%= content_for?(:title) ? yield(:title) : "Codfunder" %></title>
 
-<%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+
+  <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Codfunder", root_url %></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", :logout, method: :post %></li>
+        <% else %> 
+          <li><%= link_to "Register", new_user_path %> </li>
+          <li><%= link_to "Login", :login %></li>
+        <% end %>
+    </ul>
+
+    <ul class="left">
+      <li><%= link_to 'New Project', 'projects/new' %></li>
+    </ul>
+  </section>
+</nav>
+
+    <div class="container">
+      <div>
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
+      </div>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+    </div>
+  </body>
 </html>

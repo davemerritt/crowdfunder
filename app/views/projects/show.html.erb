@@ -1,28 +1,18 @@
-<%= link_to 'Edit Project', edit_project_path %>
-<%= link_to 'Delete Project', @project, :confirm => "Delete this project?", :method => :delete %>
-
-<%# if current_user.id == current_project %>
-
-<p> You have already pledged!  </p>
-
-<%# else %>
-<p>Pledge Below!</p>
-<%# end %>
-
 <h1>
 	<%= @project[:name] %>
 </h1>
 	<hr/>
-<p>
-	About This Project: <%= @project[:description] %>
+<div style="word-wrap: break-word;">
+	<h2>About This Project:</h2><br/><p> <%= @project[:description] %></p>
 	<hr/>
-	Project Goal: <%= number_to_currency(@project.goal) %>
+	<h2>Project Goal:</h2></br> <h3><%= number_to_currency(@project.goal) %></h3>
 	<hr/>
 	</p>
-	Total Pledged: <%= number_to_currency(@project.pledges.sum(:amount)) %>
+	<h2>Total Pledged:</h2> <h4><%= number_to_currency(@project.pledges.sum(:amount)) %>
+</div>
 
 <p><% time_diff_components = Time.diff(@project[:starttime], @project[:endtime]) %>
-   Number of Days Left: <%= time_diff_components[:day] %> 
+   Number of Days Left: <%= time_diff_components[:day] %> </h4>
 </p>
 
 <% if Time.now <= @project[:endtime] %>
@@ -32,4 +22,3 @@
 <% else %>
 <p>This project has ended! </p>
 <% end %>
-<%= link_to 'Home', projects_path %>

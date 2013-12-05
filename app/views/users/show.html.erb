@@ -15,8 +15,8 @@
         <% project.each do |proj| %>
           <tr>
               <td><%= x %></td>
-              <td><%= proj.name %></td>
-              <td><%= pledge.amount %>
+              <td><%= link_to proj.name, project_path %></td>
+              <td><%= number_to_currency(pledge.amount) %>
             <% end %>
           </tr>
         <% x+=1 %>
@@ -24,5 +24,4 @@
     </table>
   </div>
 <hr />
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Home', projects_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
