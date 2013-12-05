@@ -4,7 +4,25 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%=  %>
+
+<div class="large-6 medium-6 small-12 columns">
+  <h2>My Pledges</h2>
+    <% x = 1 %>
+    <table class="my-pledges">        
+      <thead> <td></td> <td>Project Name </td> <td>Amount Pledged</td> </thead>
+      <% @user.pledges.each do |pledge| %>
+        <% project = Project.where(:id => pledge.project_id) %>
+        <% project.each do |proj| %>
+          <tr>
+              <td><%= x %></td>
+              <td><%= proj.name %></td>
+              <td><%= pledge.amount %>
+            <% end %>
+          </tr>
+        <% x+=1 %>
+      <% end %>
+    </table>
+  </div>
 <hr />
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Home', projects_path %>
