@@ -4,4 +4,4 @@ Pull up to the dock and fund with fish.
 
 Collaboration by Dave Merrit, Gene Mills, and Geoff Mesenbrink.
 
-![](http://imgs.xkcd.com/comics/git_commit.png)
+http://imgs.xkcd.com/comics/git_commit.png
