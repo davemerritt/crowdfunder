@@ -1,0 +1,9 @@
+  <div id="pledge-form-errors">
+    <% if @pledge.errors.present? %>
+      <% @pledge.errors.full_messages.each do |error| %>
+        <div class="alert">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>

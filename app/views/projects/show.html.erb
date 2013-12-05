@@ -8,7 +8,9 @@
 	<h2>Project Goal:</h2></br> <h3><%= number_to_currency(@project.goal) %></h3>
 	<hr/>
 	</p>
-	<h2>Total Pledged:</h2> <h4><%= number_to_currency(@project.pledges.sum(:amount)) %>
+  <div class="total-pledges">
+	  <%= render :partial => 'total_pledges' %>
+  </div>
 </div>
 
 <p><% time_diff_components = Time.diff(@project[:starttime], @project[:endtime]) %>
@@ -16,6 +18,10 @@
 </p>
 
 <% if Time.now <= @project[:endtime] %>
+
+<div id="pledge-form-errors">
+  <%= render :partial => "pledges/pledge_form_errors" %>
+</div>
 
 <%= render 'pledges/pledge_form' %>
 

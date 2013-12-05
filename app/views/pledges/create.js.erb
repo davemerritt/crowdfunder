@@ -1,0 +1,7 @@
+<% if @pledge.errors.present? %>
+  $("#review-form-errors").html("<%= escape_javascript(render(:partial => '/pledges/review_form_errors')) %>");
+<% else %>
+  $("#review-form-errors").html("");
+  $("#total-pledges").html("<%= escape_javascript(render(:partial => 'total_pledges')) %>");
+  $("#new_pledge")[0].reset();
+<% end %>

@@ -9,11 +9,15 @@ class PledgesController < ApplicationController
   	@pledge = @project.pledges.build(pledge_params)
   	@pledge.user_id = current_user.id
   
-  	if @pledge.save
-  		redirect_to project_path(@project.id), notice: 'Pledged!'
-  	else
-  		render :action => :show
-  	end
+    respond_to do |format|
+  	  if @pledge.save
+  	   	format.html { redirect_to project_path(@project.id), notice: 'Pledged!' }
+        format.js {}
+  	  else
+  	   	format.html { render :action => :show }
+        format.js {}
+  	  end
+    end
   end
 
   private
